@@ -12,12 +12,14 @@ class Program
     static void Main(string[] args)
     {
         SectionSeparator("Array - Character Counter");
-
+        
         Console.WriteLine("Please enter a letter.");
         char characterInput = Convert.ToChar(Console.ReadLine());
         Console.WriteLine("Now write your choice of word:");
         string word = Console.ReadLine();
-        CharacterCounter(characterInput, word);
+        int Charactercounter = CharacterCounter(characterInput, word);
+        Console.WriteLine($"\tThere are {Charactercounter} {characterInput}'s in {word}");
+
 
         SectionSeparator("Array - IsPalindrome Section");
 
@@ -32,8 +34,8 @@ class Program
             Console.WriteLine("Please enter a name.");
             Console.ReadLine();
             Console.WriteLine("Please enter a key to add more or e to exit");
-            userInput = Convert.ToChar(Console.ReadLine());
-        } while ( userInput != 'e' || userInput != 'E' );
+            userInput = Console.ReadKey().KeyChar;
+        } while (userInput != 'e'|| userInput != 'E' );
 
         SectionSeparator("List - Traversal Selection");
 
@@ -56,19 +58,19 @@ class Program
     /// <returns></returns>
         static int CharacterCounter(char characterInput, string word)
         {
-            char[] charArray = word.ToCharArray();
-            int charCounter = characterInput;
+            
+            int charCounter = 0;
             word = word.ToLower();
+            char[] charArray = word.ToCharArray();
+        for (int i = 0; i < word.Length; i++)
+        {
             
-            for(int i = 0; i < word.Length; i++)
+            if (charArray[i] == characterInput)
             {
-            
-            if (charArray[i] == charCounter)
-            { 
-                   Console.WriteLine($"\tThere are {i-1} {characterInput}'s in {word}"); 
+                   charCounter++;
             }
         }
-            return charCounter++;
+        return charCounter;
         }
     /// <summary>
     /// 
@@ -77,18 +79,19 @@ class Program
     /// <returns></returns>
     static bool IsPalindrome(string word)
         {
+        word = word.ToLower();
         char[] wordArray = word.ToCharArray();
         string reverseWord = "";
-        bool work = false;
+       
             for(int i = 0; i < wordArray.Length; i++)
             {
                 reverseWord = reverseWord + wordArray[wordArray.Length - i - 1 ];
             }
             if (reverseWord == word)
             {
-                work = true;
+            return true;
             }
-            return work;
+            return false;
         }
         /// <summary>
         /// 
