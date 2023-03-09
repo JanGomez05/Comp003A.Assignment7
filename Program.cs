@@ -99,7 +99,7 @@ class Program
             return false;
         }
         /// <summary>
-        /// 
+        /// Reading the values from the list and displaying them
         /// </summary>
         /// <param name="list"></param>
     static void TraverseList(List<string> list)
@@ -110,7 +110,7 @@ class Program
             }
         }
         /// <summary>
-        /// 
+        /// reversing the values of the listed names
         /// </summary>
         /// <param name="list"></param>
     static void TraverseListReverse(List<string> list)
