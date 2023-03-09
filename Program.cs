@@ -32,12 +32,17 @@ class Program
         do
         {
             Console.WriteLine("Please enter a name.");
-            Console.ReadLine();
+            names.Add(Console.ReadLine());
             Console.WriteLine("Please enter a key to add more or e to exit");
             userInput = Console.ReadKey().KeyChar;
-        } while (userInput != 'e'|| userInput != 'E' );
+
+        } while (userInput != 'e' && userInput != 'E' );
 
         SectionSeparator("List - Traversal Selection");
+        TraverseList(names);
+
+        SectionSeparator("List - Reverse Traversal Selection");
+        TraverseListReverse(names);
 
 
     }// end of main code
